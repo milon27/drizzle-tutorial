@@ -1,0 +1,25 @@
+{
+  "name": "part1",
+  "version": "1.0.0",
+  "description": "- part 1 (project setup)",
+  "main": "index.js",
+  "scripts": {
+    "db:generate": "drizzle-kit generate:mysql",
+    "db:deploy": "ts-node --files .drizzle/migrator.ts",
+    "dev": "ts-node --files src/app.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.2.3",
+    "drizzle-kit": "^0.18.0",
+    "nodemon": "^2.0.22",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.26.1",
+    "mysql2": "^3.3.2"
+  }
+}

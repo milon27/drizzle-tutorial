@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "ESNext",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "removeComments": false,
+    "importsNotUsedAsValues": "remove",
+    "stripInternal": false,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
+    /* Type Checking */
+    "strict": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "skipLibCheck": true /* Skip type checking all .d.ts files. */,
+    "typeRoots": ["./src/types"],
+    "types": ["node"]
+  },
+  "exclude": ["lib/prisma"],
+  "include": ["./.eslintrc.js", "./src", "lib/try.ts"]
+}
