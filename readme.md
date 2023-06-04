@@ -30,3 +30,17 @@
       - create a migrator file
       - create npm script to run deploy migration
   - insert a user and query that user
+
+- part 2 (start building a project)
+  - schemas/tables we will have `users, blogs, category , contact details`
+    - `users` table contain user details
+    - `contact details`
+      - 1 user will have 1 contact details (1-1)
+      - e.g. `contacts` -> siteUrl, profileLink -> github.com -> github.com/milon27
+    - `blogs` table contain blog
+      - each `blog` will belong to a `user`
+      - 1 `user` can have many `blog` (1-M)
+    - `category`
+      - 1 category can have many blog
+      - 1 blog can have many category
+      - so `(N-M)`
