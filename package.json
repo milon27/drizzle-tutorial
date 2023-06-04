@@ -1,7 +1,7 @@
 {
   "name": "part1",
   "version": "1.0.0",
-  "description": "- part 1 (project setup)",
+  "description": "blog app with drizzle",
   "main": "index.js",
   "scripts": {
     "db:generate": "drizzle-kit generate:mysql",
