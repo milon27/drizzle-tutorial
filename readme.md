@@ -34,15 +34,18 @@
 ### part 2 (start building a project)
 
 - update drizzle orm
+- install dotenv (create config folder, use db.ts , migrator.ts file)
 - schemas/tables we will have `users, blogs, category , contact details`
   - `users` table contain user details
-  - `contact details`
-    - 1 user will have 1 contact details (1-1)
-    - e.g. `contacts` -> siteUrl, profileLink -> github.com -> github.com/milon27
+  - `role`
+    - 1 user will have 1 role (1-1) e.g. user is an admin or customer
   - `blogs` table contain blog
-    - each `blog` will belong to a `user`
-    - 1 `user` can have many `blog` (1-M)
+    - each `blog` will have a author,1 `user` will have many `blog` (1-M)
   - `category`
-    - 1 category can have many blog
-    - 1 blog can have many category
-    - so `(N-M)`
+    - 1 category can have many blog,1 blog can have many category `(N-M)`
+- define user, role
+- define blog
+- define category, blog2category
+- \*define the types also
+- \*define the relations
+- import all schema in db.ts with logger
