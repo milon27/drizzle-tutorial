@@ -1,6 +1,6 @@
 import { drizzle } from "drizzle-orm/mysql2";
 import mysql from "mysql2/promise";
-import { envConfig, envConfig } from "../config/config";
+import { envConfig } from "../config/config";
 
 import * as allUser from "./schema/user.schema";
 import * as allCategory from "./schema/category.schema";
