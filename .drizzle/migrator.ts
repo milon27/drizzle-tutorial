@@ -2,11 +2,12 @@ import { migrate } from "drizzle-orm/mysql2/migrator";
 import { drizzle } from "drizzle-orm/mysql2";
 import mysql2 from "mysql2/promise";
 import path from "path";
+import { envConfig } from "../src/config/config";
 
 const doMigrate = async () => {
   try {
     const dbConnection = await mysql2.createConnection({
-      uri: "mysql://root:myPassWord@localhost:3308/test",
+      uri: envConfig.DATABASE_URL,
     });
     const dbMigrator = drizzle(dbConnection);
 
