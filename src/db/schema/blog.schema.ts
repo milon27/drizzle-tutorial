@@ -1,7 +1,6 @@
-import { InferModel, relations, sql } from "drizzle-orm";
-import { boolean, datetime, decimal, index, int, mysqlTable, timestamp, uniqueIndex, varchar } from "drizzle-orm/mysql-core";
+import { InferModel, sql } from "drizzle-orm";
+import { boolean, datetime, decimal, index, int, mysqlTable, uniqueIndex, varchar } from "drizzle-orm/mysql-core";
 import { UserSchema } from "./user.schema";
-import { BlogToCategorySchema } from "./blog-to-category.schema";
 
 export const BlogSchema = mysqlTable(
   "blogs",
@@ -36,11 +35,3 @@ export const BlogSchema = mysqlTable(
 
 export type IBlog = InferModel<typeof BlogSchema, "select">;
 export type ICreateBlog = InferModel<typeof BlogSchema, "insert">;
-
-// blog relation ship
-export const BlogRelation = relations(BlogSchema, ({ one, many }) => {
-  return {
-    author: one(UserSchema, { fields: [BlogSchema.authorId], references: [UserSchema.id] }),
-    blogToCategory: many(BlogToCategorySchema),
-  };
-});

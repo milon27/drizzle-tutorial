@@ -1,7 +1,6 @@
-import { sql, InferModel, relations } from "drizzle-orm";
-import { int, mysqlTable, varchar, mysqlEnum, datetime, uniqueIndex } from "drizzle-orm/mysql-core";
+import { InferModel, sql } from "drizzle-orm";
+import { datetime, int, mysqlEnum, mysqlTable, uniqueIndex, varchar } from "drizzle-orm/mysql-core";
 import { RoleSchema } from "./role.schema";
-import { BlogSchema } from "./blog.schema";
 
 export const UserSchema = mysqlTable(
   "users",
@@ -30,13 +29,3 @@ export const UserSchema = mysqlTable(
 
 export type IUser = InferModel<typeof UserSchema, "select">;
 export type ICreateUser = InferModel<typeof UserSchema, "insert">;
-
-// 1 user will have 1 role
-// 1 role will have m user
-// 1 user will have M blogs
-export const UserRelation = relations(UserSchema, ({ one, many }) => {
-  return {
-    role: one(RoleSchema, { fields: [UserSchema.roleSlug], references: [RoleSchema.slug] }),
-    blogs: many(BlogSchema),
-  };
-});

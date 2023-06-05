@@ -1,6 +1,5 @@
-import { InferModel, relations, sql } from "drizzle-orm";
+import { InferModel, sql } from "drizzle-orm";
 import { datetime, mysqlTable, varchar } from "drizzle-orm/mysql-core";
-import { BlogToCategorySchema } from "./blog-to-category.schema";
 
 export const CategorySchema = mysqlTable("categories", {
   slug: varchar("slug", { length: 50 }).primaryKey(),
@@ -15,10 +14,3 @@ export const CategorySchema = mysqlTable("categories", {
 
 export type ICategory = InferModel<typeof CategorySchema, "select">;
 export type ICreateCategory = InferModel<typeof CategorySchema, "insert">;
-
-// category relation ship
-export const CategoryRelation = relations(CategorySchema, ({ one, many }) => {
-  return {
-    blogToCategory: many(BlogToCategorySchema),
-  };
-});
