@@ -6,4 +6,6 @@ const pool = mysql.createPool({
   uri: envConfig.DATABASE_URL,
 });
 
-export const db = drizzle(pool);
+export const db = drizzle(pool, {
+  mode: "default",
+});

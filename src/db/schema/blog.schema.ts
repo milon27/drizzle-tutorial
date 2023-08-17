@@ -1,5 +1,5 @@
 import { InferModel, sql } from "drizzle-orm";
-import { boolean, datetime, decimal, index, int, mysqlTable, uniqueIndex, varchar } from "drizzle-orm/mysql-core";
+import { boolean, datetime, decimal, index, int, mysqlTable, varchar } from "drizzle-orm/mysql-core";
 import { UserSchema } from "./user.schema";
 
 export const BlogSchema = mysqlTable(
@@ -7,7 +7,7 @@ export const BlogSchema = mysqlTable(
   {
     id: int("id").autoincrement().primaryKey(),
     title: varchar("title", { length: 255 }).notNull(),
-    slug: varchar("slug", { length: 255 }).notNull(),
+    slug: varchar("slug", { length: 255 }).unique().notNull(),
     content: varchar("content", { length: 2000 }).notNull(),
     thumbnail: varchar("thumbnail", { length: 255 })
       .notNull()
@@ -27,7 +27,6 @@ export const BlogSchema = mysqlTable(
   },
   (blogSchema) => {
     return {
-      slug_unique_idx: uniqueIndex("slug_unique_idx").on(blogSchema.slug),
       published_idx: index("published_idx").on(blogSchema.published),
     };
   }
